@@ -55,4 +55,6 @@ compile 과정 : typescript -> babel(html, css, image ... -> javascript) -> java
 
 ```js
 1. npm i @emotion/react @emotion/styled
-```
+
+2. npm i @emotion/babel-plugin              /* babel과 emotion 설정 */
+``` 
