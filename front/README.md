@@ -48,7 +48,6 @@ compile 과정 : typescript -> babel(html, css, image ... -> javascript) -> java
 1. npm i @loadable/component
 2. npm i -D @types/loadable__component
 ```
-
 - import 하는 페이지에 적용시 자동 코드 스플리팅
 
 ## Styling
@@ -58,3 +57,7 @@ compile 과정 : typescript -> babel(html, css, image ... -> javascript) -> java
 
 2. npm i @emotion/babel-plugin              /* babel과 emotion 설정 */
 ``` 
+
+## 로그인, 회원가입
+
+- useCallback : onChange가 발생하는 부분의 성능 최적화를 위해 사용
