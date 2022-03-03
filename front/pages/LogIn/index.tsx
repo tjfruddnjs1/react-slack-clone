@@ -25,8 +25,8 @@ const LogIn = () => {
             withCredentials: true,
           },
         )
-        .then(() => {
-          mutate();
+        .then((response) => {
+          mutate(response.data, false);                         /* OPTIMISITIC UI */
         })
         .catch((error) => {
           setLogInError(error.response?.data?.code === 401);
@@ -37,7 +37,11 @@ const LogIn = () => {
 
   console.log(error, userData);
 
-  if (!error && userData !== false) {
+  if(userData === undefined) {
+      return <div>로딩중...</div>
+  }
+
+  if (!error && userData) {
     console.log('로그인됨', error, userData);
 
     return <Navigate to="/workspace/channel"/>

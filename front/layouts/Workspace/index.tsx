@@ -23,6 +23,7 @@ import React, { FC, useCallback, useState, useEffect } from 'react';
 import { Redirect, useParams } from 'react-router';
 import { Link, Navigate, Route, Routes, useNavigate } from 'react-router-dom';
 import useSWR from 'swr';
+import gravatar from 'gravatar';
 
 const Workspace: FC = ({ children }) => {
   const {
@@ -37,7 +38,7 @@ const Workspace: FC = ({ children }) => {
         withCredentials: true,
       })
       .then(() => {
-        mutate();
+        mutate(false, false);
       });
   }, []);
 
@@ -49,7 +50,24 @@ const Workspace: FC = ({ children }) => {
 
   return (
     <div>
+      <Header>
+        <RightMenu>
+          <span>
+            <ProfileImg src={gravatar.url(userData.email, { s: '28px', d: 'retro' })} alt={userData.nickname} />
+          </span>
+        </RightMenu>
+      </Header>
       <button onClick={onLogout}>로그아웃</button>
+      <WorkspaceWrapper>
+        <Workspaces>test</Workspaces>
+        <Channels>
+          <WorkspaceName>Sleact</WorkspaceName>
+          <MenuScroll>
+            menuscroll
+          </MenuScroll>
+        </Channels>
+        <Chats>Chats</Chats>
+      </WorkspaceWrapper>
       {children}
     </div>
   );
