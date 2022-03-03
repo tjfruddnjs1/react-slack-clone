@@ -1,12 +1,10 @@
 import axios from 'axios';
 
-const fetcher = (url: string) => {
-  axios
+const fetcher = (url: string) => 
+    axios
     .get(url, {
-      withCredentials: true,            /* cookie 주고받기 위한 */
+      withCredentials: true,                /* 쿠키 주고받기 위한 */
     })
-    .then((response) => response.data)
-    .catch((error) => error);
-};
+    .then((response) => response.data);
 
 export default fetcher;
